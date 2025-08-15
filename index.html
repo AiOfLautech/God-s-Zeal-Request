@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <style>
+        /* ... styles unchanged, omitted for brevity ... */
         :root {
             --primary: #7928CA;
             --primary-dark: #6200EA;
@@ -22,530 +23,79 @@
             --shadow: 0 10px 30px -15px rgba(0, 0, 0, 0.3);
             --transition: all 0.3s ease;
         }
-
         .light-theme {
             --dark-bg: #f5f7fa;
             --dark-card: #ffffff;
             --dark-text: #2d3748;
             --shadow: 0 10px 30px -15px rgba(0, 0, 0, 0.1);
         }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-
-        body {
-            background: var(--dark-bg);
-            color: var(--dark-text);
-            min-height: 100vh;
-            overflow-x: hidden;
-            transition: var(--transition);
-        }
-
-        .light-theme body {
-            background: var(--light-bg);
-        }
-
-        #particles-js {
-            position: fixed;
-            width: 100%;
-            height: 100%;
-            top: 0;
-            left: 0;
-            z-index: -1;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 2rem;
-        }
-
-        header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 2.5rem;
-            padding: 1rem 0;
-        }
-
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-
-        .logo-icon {
-            font-size: 2.2rem;
-            background: linear-gradient(45deg, var(--primary), var(--secondary));
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-        }
-
-        .logo-text {
-            font-size: 2.2rem;
-            font-weight: 800;
-            background: linear-gradient(45deg, var(--primary), var(--secondary));
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            letter-spacing: -0.5px;
-        }
-
-        .theme-toggle {
-            background: var(--dark-card);
-            border: 2px solid var(--primary);
-            width: 60px;
-            height: 30px;
-            border-radius: 15px;
-            position: relative;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            padding: 0 5px;
-            transition: var(--transition);
-        }
-
-        .theme-toggle::before {
-            content: "";
-            position: absolute;
-            width: 22px;
-            height: 22px;
-            border-radius: 50%;
-            background: var(--primary);
-            transition: var(--transition);
-            left: 4px;
-        }
-
-        .light-theme .theme-toggle::before {
-            transform: translateX(28px);
-            background: #FFD700;
-        }
-
-        .content-wrapper {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 2.5rem;
-        }
-
-        @media (max-width: 992px) {
-            .content-wrapper {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        .info-section {
-            background: var(--dark-card);
-            border-radius: 20px;
-            padding: 2.5rem;
-            box-shadow: var(--shadow);
-            transition: var(--transition);
-            border: 1px solid rgba(121, 40, 202, 0.2);
-        }
-
-        .light-theme .info-section {
-            border: 1px solid rgba(121, 40, 202, 0.1);
-        }
-
-        .section-title {
-            font-size: 2.2rem;
-            margin-bottom: 1.5rem;
-            position: relative;
-            padding-bottom: 12px;
-        }
-
-        .section-title::after {
-            content: "";
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 60px;
-            height: 4px;
-            background: linear-gradient(90deg, var(--primary), var(--secondary));
-            border-radius: 2px;
-        }
-
-        .info-content {
-            line-height: 1.8;
-            color: #a0a0c0;
-        }
-
-        .info-content p {
-            margin-bottom: 1.2rem;
-        }
-
-        .highlight {
-            color: var(--primary);
-            font-weight: 600;
-        }
-
-        .features {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 1.5rem;
-            margin-top: 2rem;
-        }
-
-        .feature-card {
-            background: rgba(26, 26, 46, 0.6);
-            border-radius: 15px;
-            padding: 1.5rem;
-            transition: var(--transition);
-            border-left: 3px solid var(--primary);
-        }
-
-        .feature-card:hover {
-            transform: translateY(-5px);
-            background: rgba(26, 26, 46, 0.8);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-        }
-
-        .feature-icon {
-            font-size: 2rem;
-            margin-bottom: 1.2rem;
-            background: linear-gradient(45deg, var(--primary), var(--secondary));
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-        }
-
-        .feature-title {
-            font-size: 1.3rem;
-            margin-bottom: 0.8rem;
-            color: var(--dark-text);
-        }
-
-        .form-section {
-            background: var(--dark-card);
-            border-radius: 20px;
-            padding: 2.5rem;
-            box-shadow: var(--shadow);
-            transition: var(--transition);
-            border: 1px solid rgba(121, 40, 202, 0.2);
-        }
-
-        .light-theme .form-section {
-            border: 1px solid rgba(121, 40, 202, 0.1);
-        }
-
-        .form-container {
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        .form-title {
-            text-align: center;
-            font-size: 2rem;
-            margin-bottom: 2rem;
-            color: var(--dark-text);
-        }
-
-        .request-type {
-            display: flex;
-            gap: 1rem;
-            margin-bottom: 2rem;
-        }
-
-        .type-btn {
-            flex: 1;
-            padding: 1rem;
-            border: 2px solid var(--primary);
-            border-radius: 12px;
-            background: transparent;
-            color: var(--dark-text);
-            font-weight: 600;
-            cursor: pointer;
-            transition: var(--transition);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 0.8rem;
-        }
-
-        .type-btn.active {
-            background: rgba(121, 40, 202, 0.2);
-            border-color: var(--primary);
-            box-shadow: 0 5px 15px rgba(121, 40, 202, 0.3);
-        }
-
-        .type-icon {
-            font-size: 1.8rem;
-        }
-
-        .form-group {
-            margin-bottom: 1.5rem;
-        }
-
-        .form-label {
-            display: block;
-            margin-bottom: 0.7rem;
-            font-weight: 600;
-            color: var(--dark-text);
-        }
-
-        .form-control {
-            width: 100%;
-            padding: 1rem;
-            border-radius: 12px;
-            border: 2px solid rgba(121, 40, 202, 0.3);
-            background: rgba(26, 26, 46, 0.5);
-            color: var(--dark-text);
-            font-size: 1rem;
-            transition: var(--transition);
-        }
-
-        .light-theme .form-control {
-            background: #f8f9fa;
-            color: #2d3748;
-            border-color: #cbd5e0;
-        }
-
-        .form-control:focus {
-            outline: none;
-            border-color: var(--primary);
-            box-shadow: 0 0 0 3px rgba(121, 40, 202, 0.2);
-        }
-
-        textarea.form-control {
-            min-height: 120px;
-            resize: vertical;
-        }
-
-        .btn {
-            display: inline-block;
-            width: 100%;
-            padding: 1.2rem;
-            border: none;
-            border-radius: 12px;
-            background: linear-gradient(45deg, var(--primary), var(--secondary));
-            color: white;
-            font-size: 1.1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: var(--transition);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 25px rgba(121, 40, 202, 0.4);
-        }
-
-        .btn:active {
-            transform: translateY(0);
-        }
-
-        .btn:disabled {
-            opacity: 0.7;
-            cursor: not-allowed;
-            transform: none;
-            box-shadow: none;
-        }
-
-        .additional-fields {
-            background: rgba(26, 26, 46, 0.4);
-            border-radius: 15px;
-            padding: 1.5rem;
-            margin-top: 1.5rem;
-            border: 1px dashed var(--primary);
-        }
-
-        .hidden {
-            display: none;
-        }
-
-        /* Loading overlay */
-        #loadingOverlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(15, 12, 41, 0.9);
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            z-index: 1000;
-            opacity: 0;
-            pointer-events: none;
-            transition: opacity 0.3s ease;
-        }
-
-        #loadingOverlay.active {
-            opacity: 1;
-            pointer-events: all;
-        }
-
-        .spinner {
-            width: 80px;
-            height: 80px;
-            border: 5px solid rgba(121, 40, 202, 0.2);
-            border-top: 5px solid var(--primary);
-            border-radius: 50%;
-            animation: spin 1.2s linear infinite;
-            margin-bottom: 2rem;
-            position: relative;
-        }
-
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-
-        .loading-text {
-            font-size: 1.8rem;
-            font-weight: 700;
-            background: linear-gradient(45deg, var(--primary), var(--secondary));
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            letter-spacing: 1px;
-        }
-
-        /* Success modal */
-        .modal {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(15, 12, 41, 0.9);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 2000;
-            opacity: 0;
-            pointer-events: none;
-            transition: opacity 0.4s ease;
-        }
-
-        .modal.active {
-            opacity: 1;
-            pointer-events: all;
-        }
-
-        .modal-content {
-            background: var(--dark-card);
-            border-radius: 20px;
-            padding: 3rem;
-            text-align: center;
-            max-width: 500px;
-            width: 90%;
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
-            border: 1px solid rgba(121, 40, 202, 0.3);
-            transform: scale(0.8);
-            transition: transform 0.4s ease;
-        }
-
-        .modal.active .modal-content {
-            transform: scale(1);
-        }
-
-        .checkmark {
-            width: 100px;
-            height: 100px;
-            margin: 0 auto 2rem;
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background: linear-gradient(45deg, var(--primary), var(--secondary));
-            animation: pulse 1.5s infinite;
-        }
-
-        @keyframes pulse {
-            0% { box-shadow: 0 0 0 0 rgba(121, 40, 202, 0.7); }
-            70% { box-shadow: 0 0 0 20px rgba(121, 40, 202, 0); }
-            100% { box-shadow: 0 0 0 0 rgba(121, 40, 202, 0); }
-        }
-
-        .checkmark-icon {
-            font-size: 3.5rem;
-            color: white;
-        }
-
-        .modal-title {
-            font-size: 2.2rem;
-            margin-bottom: 1rem;
-            color: var(--success);
-        }
-
-        .modal-text {
-            color: #a0a0c0;
-            line-height: 1.7;
-            margin-bottom: 2rem;
-        }
-
-        .modal-btn {
-            background: var(--success);
-            color: white;
-            border: none;
-            padding: 0.9rem 2rem;
-            border-radius: 10px;
-            font-size: 1.1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: var(--transition);
-        }
-
-        .modal-btn:hover {
-            background: #00a042;
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(0, 200, 83, 0.4);
-        }
-
-        footer {
-            text-align: center;
-            padding: 2rem 0;
-            color: #a0a0c0;
-            font-size: 0.9rem;
-            margin-top: 2rem;
-        }
-
-        .particles-js-canvas-el {
-            opacity: 0.25;
-        }
-
-        /* Responsive adjustments */
-        @media (max-width: 768px) {
-            .container {
-                padding: 1.5rem;
-            }
-            
-            .content-wrapper {
-                gap: 1.5rem;
-            }
-            
-            .info-section, .form-section {
-                padding: 1.8rem;
-            }
-            
-            .section-title {
-                font-size: 1.8rem;
-            }
-            
-            .features {
-                grid-template-columns: 1fr;
-            }
-        }
-        
-        /* Error styling */
-        .form-error {
-            color: var(--error);
-            font-size: 0.9rem;
-            margin-top: 5px;
-            display: none;
-        }
-        
-        .form-control.error {
-            border-color: var(--error) !important;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        body { background: var(--dark-bg); color: var(--dark-text); min-height: 100vh; overflow-x: hidden; transition: var(--transition); }
+        .light-theme body { background: var(--light-bg); }
+        #particles-js { position: fixed; width: 100%; height: 100%; top: 0; left: 0; z-index: -1; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 2rem; }
+        header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 2.5rem; padding: 1rem 0; }
+        .logo { display: flex; align-items: center; gap: 12px; }
+        .logo-icon { font-size: 2.2rem; background: linear-gradient(45deg, var(--primary), var(--secondary)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+        .logo-text { font-size: 2.2rem; font-weight: 800; background: linear-gradient(45deg, var(--primary), var(--secondary)); -webkit-background-clip: text; background-clip: text; color: transparent; letter-spacing: -0.5px; }
+        .theme-toggle { background: var(--dark-card); border: 2px solid var(--primary); width: 60px; height: 30px; border-radius: 15px; position: relative; cursor: pointer; display: flex; align-items: center; padding: 0 5px; transition: var(--transition); }
+        .theme-toggle::before { content: ""; position: absolute; width: 22px; height: 22px; border-radius: 50%; background: var(--primary); transition: var(--transition); left: 4px; }
+        .light-theme .theme-toggle::before { transform: translateX(28px); background: #FFD700; }
+        .content-wrapper { display: grid; grid-template-columns: 1fr 1fr; gap: 2.5rem; }
+        @media (max-width: 992px) { .content-wrapper { grid-template-columns: 1fr; } }
+        .info-section { background: var(--dark-card); border-radius: 20px; padding: 2.5rem; box-shadow: var(--shadow); transition: var(--transition); border: 1px solid rgba(121, 40, 202, 0.2); }
+        .light-theme .info-section { border: 1px solid rgba(121, 40, 202, 0.1); }
+        .section-title { font-size: 2.2rem; margin-bottom: 1.5rem; position: relative; padding-bottom: 12px; }
+        .section-title::after { content: ""; position: absolute; bottom: 0; left: 0; width: 60px; height: 4px; background: linear-gradient(90deg, var(--primary), var(--secondary)); border-radius: 2px; }
+        .info-content { line-height: 1.8; color: #a0a0c0; }
+        .info-content p { margin-bottom: 1.2rem; }
+        .highlight { color: var(--primary); font-weight: 600; }
+        .features { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; margin-top: 2rem; }
+        .feature-card { background: rgba(26, 26, 46, 0.6); border-radius: 15px; padding: 1.5rem; transition: var(--transition); border-left: 3px solid var(--primary); }
+        .feature-card:hover { transform: translateY(-5px); background: rgba(26, 26, 46, 0.8); box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); }
+        .feature-icon { font-size: 2rem; margin-bottom: 1.2rem; background: linear-gradient(45deg, var(--primary), var(--secondary)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+        .feature-title { font-size: 1.3rem; margin-bottom: 0.8rem; color: var(--dark-text); }
+        .form-section { background: var(--dark-card); border-radius: 20px; padding: 2.5rem; box-shadow: var(--shadow); transition: var(--transition); border: 1px solid rgba(121, 40, 202, 0.2); }
+        .light-theme .form-section { border: 1px solid rgba(121, 40, 202, 0.1); }
+        .form-container { max-width: 600px; margin: 0 auto; }
+        .form-title { text-align: center; font-size: 2rem; margin-bottom: 2rem; color: var(--dark-text); }
+        .request-type { display: flex; gap: 1rem; margin-bottom: 2rem; }
+        .type-btn { flex: 1; padding: 1rem; border: 2px solid var(--primary); border-radius: 12px; background: transparent; color: var(--dark-text); font-weight: 600; cursor: pointer; transition: var(--transition); display: flex; flex-direction: column; align-items: center; gap: 0.8rem; }
+        .type-btn.active { background: rgba(121, 40, 202, 0.2); border-color: var(--primary); box-shadow: 0 5px 15px rgba(121, 40, 202, 0.3); }
+        .type-icon { font-size: 1.8rem; }
+        .form-group { margin-bottom: 1.5rem; }
+        .form-label { display: block; margin-bottom: 0.7rem; font-weight: 600; color: var(--dark-text); }
+        .form-control { width: 100%; padding: 1rem; border-radius: 12px; border: 2px solid rgba(121, 40, 202, 0.3); background: rgba(26, 26, 46, 0.5); color: var(--dark-text); font-size: 1rem; transition: var(--transition); }
+        .light-theme .form-control { background: #f8f9fa; color: #2d3748; border-color: #cbd5e0; }
+        .form-control:focus { outline: none; border-color: var(--primary); box-shadow: 0 0 0 3px rgba(121, 40, 202, 0.2); }
+        textarea.form-control { min-height: 120px; resize: vertical; }
+        .btn { display: inline-block; width: 100%; padding: 1.2rem; border: none; border-radius: 12px; background: linear-gradient(45deg, var(--primary), var(--secondary)); color: white; font-size: 1.1rem; font-weight: 600; cursor: pointer; transition: var(--transition); position: relative; overflow: hidden; }
+        .btn:hover { transform: translateY(-3px); box-shadow: 0 10px 25px rgba(121, 40, 202, 0.4); }
+        .btn:active { transform: translateY(0); }
+        .btn:disabled { opacity: 0.7; cursor: not-allowed; transform: none; box-shadow: none; }
+        .additional-fields { background: rgba(26, 26, 46, 0.4); border-radius: 15px; padding: 1.5rem; margin-top: 1.5rem; border: 1px dashed var(--primary); }
+        .hidden { display: none; }
+        #loadingOverlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(15, 12, 41, 0.9); display: flex; flex-direction: column; justify-content: center; align-items: center; z-index: 1000; opacity: 0; pointer-events: none; transition: opacity 0.3s ease; }
+        #loadingOverlay.active { opacity: 1; pointer-events: all; }
+        .spinner { width: 80px; height: 80px; border: 5px solid rgba(121, 40, 202, 0.2); border-top: 5px solid var(--primary); border-radius: 50%; animation: spin 1.2s linear infinite; margin-bottom: 2rem; position: relative; }
+        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+        .loading-text { font-size: 1.8rem; font-weight: 700; background: linear-gradient(45deg, var(--primary), var(--secondary)); -webkit-background-clip: text; background-clip: text; color: transparent; letter-spacing: 1px; }
+        .modal { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(15, 12, 41, 0.9); display: flex; justify-content: center; align-items: center; z-index: 2000; opacity: 0; pointer-events: none; transition: opacity 0.4s ease; }
+        .modal.active { opacity: 1; pointer-events: all; }
+        .modal-content { background: var(--dark-card); border-radius: 20px; padding: 3rem; text-align: center; max-width: 500px; width: 90%; box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5); border: 1px solid rgba(121, 40, 202, 0.3); transform: scale(0.8); transition: transform 0.4s ease; }
+        .modal.active .modal-content { transform: scale(1); }
+        .checkmark { width: 100px; height: 100px; margin: 0 auto 2rem; border-radius: 50%; display: flex; justify-content: center; align-items: center; background: linear-gradient(45deg, var(--primary), var(--secondary)); animation: pulse 1.5s infinite; }
+        @keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(121, 40, 202, 0.7); } 70% { box-shadow: 0 0 0 20px rgba(121, 40, 202, 0); } 100% { box-shadow: 0 0 0 0 rgba(121, 40, 202, 0); } }
+        .checkmark-icon { font-size: 3.5rem; color: white; }
+        .modal-title { font-size: 2.2rem; margin-bottom: 1rem; color: var(--success); }
+        .modal-text { color: #a0a0c0; line-height: 1.7; margin-bottom: 2rem; }
+        .modal-btn { background: var(--success); color: white; border: none; padding: 0.9rem 2rem; border-radius: 10px; font-size: 1.1rem; font-weight: 600; cursor: pointer; transition: var(--transition); }
+        .modal-btn:hover { background: #00a042; transform: translateY(-3px); box-shadow: 0 5px 15px rgba(0, 200, 83, 0.4); }
+        footer { text-align: center; padding: 2rem 0; color: #a0a0c0; font-size: 0.9rem; margin-top: 2rem; }
+        .particles-js-canvas-el { opacity: 0.25; }
+        @media (max-width: 768px) { .container { padding: 1.5rem; } .content-wrapper { gap: 1.5rem; } .info-section, .form-section { padding: 1.8rem; } .section-title { font-size: 1.8rem; } .features { grid-template-columns: 1fr; } }
+        .form-error { color: var(--error); font-size: 0.9rem; margin-top: 5px; display: none; }
+        .form-control.error { border-color: var(--error) !important; }
     </style>
 </head>
 <body>
@@ -566,10 +116,8 @@
             <div class="info-section">
                 <h2 class="section-title">Tech Solutions</h2>
                 <div class="info-content">
-                    <p>At <span class="highlight">God's Zeal Tech</span>, we provide cutting-edge solutions for your most challenging technical problems. Our team of experts is ready to help you innovate and grow.</p>
-                    
+                    <p>At <span class="highlight">God's Zeal Tech</span>, we provide cutting-edge solutions for your most challenging technical problems. Our team of experts is ready to help you innovate and succeed.</p>
                     <p>Whether you need a simple website fix or a complex system integration, we deliver with <span class="highlight">precision and passion</span>.</p>
-                    
                     <div class="features">
                         <div class="feature-card">
                             <i class="fas fa-bolt feature-icon"></i>
@@ -600,32 +148,32 @@
                     <h2 class="form-title">Submit Your Request</h2>
                     
                     <div class="request-type">
-                        <button class="type-btn active" data-type="tech">
+                        <button type="button" class="type-btn active" data-type="tech">
                             <i class="fas fa-laptop-code type-icon"></i>
                             <span>Tech Request</span>
                         </button>
-                        <button class="type-btn" data-type="join">
+                        <button type="button" class="type-btn" data-type="join">
                             <i class="fas fa-users type-icon"></i>
                             <span>Join Our Team</span>
                         </button>
                     </div>
                     
-                    <form id="requestForm">
+                    <form id="requestForm" autocomplete="off">
                         <div class="form-group">
                             <label for="name" class="form-label">Full Name</label>
-                            <input type="text" id="name" class="form-control" required placeholder="John Doe">
+                            <input type="text" id="name" class="form-control" required placeholder="John Doe" autocomplete="off">
                             <div class="form-error" id="nameError">Please enter your full name</div>
                         </div>
                         
                         <div class="form-group">
                             <label for="email" class="form-label">Email Address</label>
-                            <input type="email" id="email" class="form-control" required placeholder="john@example.com">
+                            <input type="email" id="email" class="form-control" required placeholder="john@example.com" autocomplete="off">
                             <div class="form-error" id="emailError">Please enter a valid email address</div>
                         </div>
                         
                         <div class="form-group">
                             <label for="phone" class="form-label">Phone Number</label>
-                            <input type="tel" id="phone" class="form-control" placeholder="+1 (555) 123-4567">
+                            <input type="tel" id="phone" class="form-control" placeholder="+1 (555) 123-4567" autocomplete="off">
                         </div>
                         
                         <div id="techFields">
@@ -682,7 +230,7 @@
                                 
                                 <div class="form-group">
                                     <label for="photo" class="form-label">Profile Photo (Required)</label>
-                                    <input type="file" id="photo" class="form-control" accept="image/*" required>
+                                    <input type="file" id="photo" class="form-control" accept="image/*">
                                     <div class="form-error" id="photoError">Please upload a profile photo</div>
                                     <small style="color: #a0a0c0; display: block; margin-top: 5px;">JPG, PNG or GIF (max 5MB)</small>
                                 </div>
@@ -725,88 +273,26 @@
         document.addEventListener('DOMContentLoaded', function() {
             particlesJS('particles-js', {
                 "particles": {
-                    "number": {
-                        "value": 80,
-                        "density": {
-                            "enable": true,
-                            "value_area": 800
-                        }
-                    },
-                    "color": {
-                        "value": ["#7928CA", "#FF0080", "#00f2fe"]
-                    },
-                    "shape": {
-                        "type": "circle",
-                        "stroke": {
-                            "width": 0,
-                            "color": "#000000"
-                        }
-                    },
-                    "opacity": {
-                        "value": 0.5,
-                        "random": true,
-                        "anim": {
-                            "enable": true,
-                            "speed": 1,
-                            "opacity_min": 0.1,
-                            "sync": false
-                        }
-                    },
-                    "size": {
-                        "value": 3,
-                        "random": true,
-                        "anim": {
-                            "enable": true,
-                            "speed": 2,
-                            "size_min": 0.1,
-                            "sync": false
-                        }
-                    },
-                    "line_linked": {
-                        "enable": true,
-                        "distance": 150,
-                        "color": "#7928CA",
-                        "opacity": 0.2,
-                        "width": 1
-                    },
-                    "move": {
-                        "enable": true,
-                        "speed": 1,
-                        "direction": "none",
-                        "random": true,
-                        "straight": false,
-                        "out_mode": "out",
-                        "bounce": false,
-                        "attract": {
-                            "enable": true,
-                            "rotateX": 600,
-                            "rotateY": 1200
-                        }
+                    "number": { "value": 80, "density": { "enable": true, "value_area": 800 } },
+                    "color": { "value": ["#7928CA", "#FF0080", "#00f2fe"] },
+                    "shape": { "type": "circle", "stroke": { "width": 0, "color": "#000000" } },
+                    "opacity": { "value": 0.5, "random": true, "anim": { "enable": true, "speed": 1, "opacity_min": 0.1, "sync": false } },
+                    "size": { "value": 3, "random": true, "anim": { "enable": true, "speed": 2, "size_min": 0.1, "sync": false } },
+                    "line_linked": { "enable": true, "distance": 150, "color": "#7928CA", "opacity": 0.2, "width": 1 },
+                    "move": { "enable": true, "speed": 1, "direction": "none", "random": true, "straight": false, "out_mode": "out", "bounce": false,
+                        "attract": { "enable": true, "rotateX": 600, "rotateY": 1200 }
                     }
                 },
                 "interactivity": {
                     "detect_on": "canvas",
                     "events": {
-                        "onhover": {
-                            "enable": true,
-                            "mode": "grab"
-                        },
-                        "onclick": {
-                            "enable": true,
-                            "mode": "push"
-                        },
+                        "onhover": { "enable": true, "mode": "grab" },
+                        "onclick": { "enable": true, "mode": "push" },
                         "resize": true
                     },
                     "modes": {
-                        "grab": {
-                            "distance": 140,
-                            "line_linked": {
-                                "opacity": 0.5
-                            }
-                        },
-                        "push": {
-                            "particles_nb": 4
-                        }
+                        "grab": { "distance": 140, "line_linked": { "opacity": 0.5 } },
+                        "push": { "particles_nb": 4 }
                     }
                 },
                 "retina_detect": true
@@ -815,16 +301,12 @@
             // Theme toggle
             const themeToggle = document.getElementById('themeToggle');
             const body = document.body;
-            
-            // Check for saved theme preference
             if (localStorage.getItem('theme') === 'light') {
                 body.classList.add('light-theme');
                 themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
             }
-            
             themeToggle.addEventListener('click', () => {
                 body.classList.toggle('light-theme');
-                
                 if (body.classList.contains('light-theme')) {
                     localStorage.setItem('theme', 'light');
                     themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
@@ -838,14 +320,31 @@
             const typeButtons = document.querySelectorAll('.type-btn');
             const techFields = document.getElementById('techFields');
             const joinFields = document.getElementById('joinFields');
-            
+            const photoInput = document.getElementById('photo');
+            const detailsInput = document.getElementById('details');
+            const portfolioInput = document.getElementById('portfolio');
+            const socialInput = document.getElementById('social');
+            const skillsInput = document.getElementById('skills');
+            const experienceInput = document.getElementById('experience');
+            let currentType = 'tech'; // Keep track of current type
+
+            // Fix: Set correct "required" property for photo/details on type switch
+            function updateFieldRequirements(type) {
+                if (type === 'tech') {
+                    detailsInput.required = true;
+                    if (photoInput) photoInput.required = false;
+                } else {
+                    detailsInput.required = false;
+                    if (photoInput) photoInput.required = true;
+                }
+            }
+
             typeButtons.forEach(button => {
                 button.addEventListener('click', () => {
                     typeButtons.forEach(btn => btn.classList.remove('active'));
                     button.classList.add('active');
-                    
                     const type = button.getAttribute('data-type');
-                    
+                    currentType = type;
                     if (type === 'tech') {
                         techFields.classList.remove('hidden');
                         joinFields.classList.add('hidden');
@@ -853,124 +352,33 @@
                         techFields.classList.add('hidden');
                         joinFields.classList.remove('hidden');
                     }
+                    updateFieldRequirements(type);
                 });
             });
-            
+            // Set initial required
+            updateFieldRequirements(currentType);
+
             // Form submission
             const requestForm = document.getElementById('requestForm');
             const submitBtn = document.getElementById('submitBtn');
             const loadingOverlay = document.getElementById('loadingOverlay');
             const successModal = document.getElementById('successModal');
             const closeModal = document.getElementById('closeModal');
-            
-            // Error elements
             const nameError = document.getElementById('nameError');
             const emailError = document.getElementById('emailError');
             const detailsError = document.getElementById('detailsError');
             const photoError = document.getElementById('photoError');
-            
-            requestForm.addEventListener('submit', function(e) {
-                e.preventDefault();
-                
-                // Reset errors
-                document.querySelectorAll('.form-control').forEach(input => {
-                    input.classList.remove('error');
-                });
-                
-                nameError.style.display = 'none';
-                emailError.style.display = 'none';
-                detailsError.style.display = 'none';
-                photoError.style.display = 'none';
-                
-                // Get form values
-                const name = document.getElementById('name').value.trim();
-                const email = document.getElementById('email').value.trim();
-                const details = document.getElementById('details').value.trim();
-                const isJoinRequest = document.querySelector('.type-btn.active').getAttribute('data-type') === 'join';
-                const photo = document.getElementById('photo').files[0];
-                
-                // Validation flags
-                let isValid = true;
-                
-                // Name validation
-                if (!name) {
-                    document.getElementById('name').classList.add('error');
-                    nameError.style.display = 'block';
-                    isValid = false;
-                }
-                
-                // Email validation
-                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-                if (!email || !emailRegex.test(email)) {
-                    document.getElementById('email').classList.add('error');
-                    emailError.style.display = 'block';
-                    isValid = false;
-                }
-                
-                // Tech request specific validation
-                if (!isJoinRequest) {
-                    if (!details) {
-                        document.getElementById('details').classList.add('error');
-                        detailsError.style.display = 'block';
-                        isValid = false;
-                    }
-                } 
-                // Join request specific validation
-                else {
-                    if (!photo) {
-                        photoError.style.display = 'block';
-                        isValid = false;
-                    }
-                }
-                
-                // If not valid, stop here
-                if (!isValid) {
-                    return;
-                }
-                
-                // Show loading
-                loadingOverlay.classList.add('active');
-                submitBtn.disabled = true;
-                submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
-                
-                // In a real implementation, this would send to Telegram
-                // For this demo, we'll simulate success
-                setTimeout(() => {
-                    // Hide loading
-                    loadingOverlay.classList.remove('active');
-                    
-                    // Show success modal
-                    successModal.classList.add('active');
-                    
-                    // Reset form
-                    requestForm.reset();
-                    techFields.classList.remove('hidden');
-                    joinFields.classList.add('hidden');
-                    typeButtons[0].classList.add('active');
-                    typeButtons[1].classList.remove('active');
-                    
-                    // Re-enable button
-                    submitBtn.disabled = false;
-                    submitBtn.innerHTML = '<i class="fas fa-paper-plane"></i> Submit Request';
-                }, 2000);
-            });
-            
-            // Close modal
-            closeModal.addEventListener('click', () => {
-                successModal.classList.remove('active');
-            });
-            
-            // Telegram integration function (would be used in real implementation)
-            function sendToTelegram(data) {
-                const token = '8014880293:AAHJK1hSnjPPF8Z3WkxjcnaG7rmBGWjn9rw';
-                const chatId = '6868076002';
-                
+
+            // --- NEW: Telegram data and helpers ---
+            const TELEGRAM_TOKEN = '8014880293:AAHJK1hSnjPPF8Z3WkxjcnaG7rmBGWjn9rw';
+            const TELEGRAM_CHAT_ID = '6868076002';
+
+            function sendToTelegram(data, onSuccess, onError) {
                 let message = `*God's Zeal Tech Request*\n\n`;
                 message += `*Type:* ${data.requestType === 'tech' ? 'Tech Request' : 'Join Our Team'}\n\n`;
                 message += `*Name:* ${data.name}\n`;
                 message += `*Email:* ${data.email}\n`;
                 message += `*Phone:* ${data.phone || 'Not provided'}\n\n`;
-                
                 if (data.requestType === 'tech') {
                     message += `*Service:* ${data.service}\n`;
                     message += `*Urgency:* ${data.urgency}\n\n`;
@@ -980,35 +388,188 @@
                     message += `*Social:* ${data.social || 'Not provided'}\n\n`;
                     message += `*Skills:*\n${data.skills || 'Not provided'}\n\n`;
                     message += `*Experience:*\n${data.experience || 'Not provided'}`;
-                    // For image, you'd need to handle file upload separately
                 }
-                
-                // In a real implementation, you would use the Telegram Bot API here
-                 const url = `https://api.telegram.org/bot${token}/sendMessage`;
-                
-                 fetch(url, {
+                // Send message
+                const url = `https://api.telegram.org/bot${TELEGRAM_TOKEN}/sendMessage`;
+                fetch(url, {
                     method: 'POST',
-                     headers: {
-                         'Content-Type': 'application/json'
-                     },
-                     body: JSON.stringify({
-                        chat_id: chatId,
-                         text: message,
-                         parse_mode: 'Markdown'
-                     })
-                 })
-                 .then(response => response.json())
-                 .then(data => {
-                     if (data.ok) {
-                         // Success
-                     } else {
-                         // Handle error
-                     }
-                 })
-                 .catch(error => {
-                     console.error('Error:', error);
-                 });
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        chat_id: TELEGRAM_CHAT_ID,
+                        text: message,
+                        parse_mode: 'Markdown'
+                    })
+                })
+                .then(response => response.json())
+                .then(json => {
+                    if (json.ok) {
+                        if (!data.photo) {
+                            onSuccess();
+                        } else {
+                            // If join and photo exists, send photo after message
+                            sendPhotoToTelegram(data.photo, message, onSuccess, onError);
+                        }
+                    } else {
+                        onError(json.description || 'Failed to send notification');
+                    }
+                })
+                .catch(error => {
+                    onError(error.message || 'Telegram API error');
+                });
             }
+
+            // For Join: send photo after main message
+            function sendPhotoToTelegram(photoFile, caption, onSuccess, onError) {
+                const url = `https://api.telegram.org/bot${TELEGRAM_TOKEN}/sendPhoto`;
+                const formData = new FormData();
+                formData.append("chat_id", TELEGRAM_CHAT_ID);
+                formData.append("caption", caption);
+                formData.append("photo", photoFile);
+                formData.append("parse_mode", "Markdown");
+                fetch(url, {
+                    method: "POST",
+                    body: formData
+                })
+                .then(response => response.json())
+                .then(json => {
+                    if (json.ok) {
+                        onSuccess();
+                    } else {
+                        onError(json.description || 'Failed to send photo');
+                    }
+                })
+                .catch(error => {
+                    onError(error.message || 'Telegram API error (photo)');
+                });
+            }
+
+            // --- END Telegram helpers ---
+
+            requestForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                // Reset errors
+                document.querySelectorAll('.form-control').forEach(input => {
+                    input.classList.remove('error');
+                });
+                nameError.style.display = 'none';
+                emailError.style.display = 'none';
+                detailsError.style.display = 'none';
+                photoError.style.display = 'none';
+
+                // Get type
+                let isJoinRequest = currentType === 'join';
+                // Get form values
+                const name = document.getElementById('name').value.trim();
+                const email = document.getElementById('email').value.trim();
+                const phone = document.getElementById('phone').value.trim();
+
+                // For tech
+                const service = document.getElementById('service') ? document.getElementById('service').value : '';
+                const urgency = document.getElementById('urgency') ? document.getElementById('urgency').value : '';
+                const details = detailsInput ? detailsInput.value.trim() : '';
+
+                // For join
+                const portfolio = portfolioInput ? portfolioInput.value.trim() : '';
+                const social = socialInput ? socialInput.value.trim() : '';
+                const skills = skillsInput ? skillsInput.value.trim() : '';
+                const experience = experienceInput ? experienceInput.value.trim() : '';
+                const photo = photoInput ? photoInput.files[0] : null;
+
+                // Validation flags
+                let isValid = true;
+                // Name validation
+                if (!name) {
+                    document.getElementById('name').classList.add('error');
+                    nameError.style.display = 'block';
+                    isValid = false;
+                }
+                // Email validation
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (!email || !emailRegex.test(email)) {
+                    document.getElementById('email').classList.add('error');
+                    emailError.style.display = 'block';
+                    isValid = false;
+                }
+                // Tech request specific validation
+                if (!isJoinRequest) {
+                    if (!details) {
+                        detailsInput.classList.add('error');
+                        detailsError.style.display = 'block';
+                        isValid = false;
+                    }
+                } 
+                // Join request specific validation
+                else {
+                    if (!photo) {
+                        photoError.style.display = 'block';
+                        if (photoInput) photoInput.classList.add('error');
+                        isValid = false;
+                    } else if (photo.size > 5 * 1024 * 1024) {
+                        photoError.textContent = 'Photo must be less than 5MB';
+                        photoError.style.display = 'block';
+                        photoInput.classList.add('error');
+                        isValid = false;
+                    }
+                }
+                // If not valid, stop here
+                if (!isValid) {
+                    return;
+                }
+                // Show loading
+                loadingOverlay.classList.add('active');
+                submitBtn.disabled = true;
+                submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+
+                // Prepare data for Telegram
+                let data = {
+                    requestType: isJoinRequest ? 'join' : 'tech',
+                    name,
+                    email,
+                    phone,
+                    service,
+                    urgency,
+                    details,
+                    portfolio,
+                    social,
+                    skills,
+                    experience,
+                    photo: isJoinRequest ? photo : null
+                };
+
+                // Send to Telegram
+                sendToTelegram(
+                    data,
+                    function onSuccess() {
+                        // Hide loading
+                        loadingOverlay.classList.remove('active');
+                        // Show success modal
+                        successModal.classList.add('active');
+                        // Reset form
+                        requestForm.reset();
+                        techFields.classList.remove('hidden');
+                        joinFields.classList.add('hidden');
+                        typeButtons[0].classList.add('active');
+                        typeButtons[1].classList.remove('active');
+                        currentType = 'tech';
+                        updateFieldRequirements('tech');
+                        // Re-enable button
+                        submitBtn.disabled = false;
+                        submitBtn.innerHTML = '<i class="fas fa-paper-plane"></i> Submit Request';
+                    },
+                    function onError(errorMessage) {
+                        loadingOverlay.classList.remove('active');
+                        alert("Failed to send notification to Telegram: " + errorMessage);
+                        submitBtn.disabled = false;
+                        submitBtn.innerHTML = '<i class="fas fa-paper-plane"></i> Submit Request';
+                    }
+                );
+            });
+
+            // Close modal
+            closeModal.addEventListener('click', () => {
+                successModal.classList.remove('active');
+            });
+
         });
     </script>
 </body>
